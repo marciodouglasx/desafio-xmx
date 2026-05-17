@@ -29,7 +29,7 @@
     }
 
     &__link {
-        color: #111111; // Links em tom escuro para contraste no fundo amarelo
+        color: $color-near-black; // Links em tom escuro para contraste no fundo amarelo
         font-size: 0.9rem;
         font-weight: 600;
         text-decoration: none;
@@ -49,12 +49,12 @@
     // 2. Barra Preta (Disclaimer)
     // ==========================================
     &__disclaimer-bar {
-        background-color: #111111; // Preto ligeiramente suavizado ou puro #000000
+        background-color: $color-near-black; // Preto ligeiramente suavizado ou puro #000000
         padding: 35px 0;
     }
 
     &__disclaimer-text {
-        color: #888888; // Tom cinza médio para reduzir o peso visual, conforme a imagem
+        color: $color-gray-alt; // Tom cinza médio para reduzir o peso visual, conforme a imagem
         font-size: 0.78rem;
         line-height: 1.6;
         margin: 0;
@@ -71,20 +71,20 @@
     // 3. Barra Branca (Copyright e Endereço)
     // ==========================================
     &__copyright-bar {
-        background-color: #ffffff;
+        background-color: $color-white;
         padding: 25px 0;
-        border-top: 1px solid #eeeeee; // Divisória sutil superior
+        border-top: 1px solid $color-gray-faint; // Divisória sutil superior
     }
 
     &__copy-text {
-        color: #333333;
+        color: $color-charcoal;
         font-size: 0.85rem;
         font-weight: 700;
         margin: 0 0 5px 0;
     }
 
     &__address {
-        color: #666666;
+        color: $color-gray-secondary;
         font-size: 0.75rem;
         font-style: normal; // Remove o itálico padrão da tag <address>
         font-weight: 600;

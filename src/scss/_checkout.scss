@@ -1,23 +1,20 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 .checkout-section {
-    background-color: #f7f9fa; // Tom de cinza bem claro para o fundo da página inteira
+    background-color: $color-bg-light; // Tom de cinza bem claro para o fundo da página inteira
     width: 100%;
     font-family: sans-serif;
 
-    // ==========================================
-    // 1. Urgência (Topo da Seção)
-    // ==========================================
     &__urgency-bar {
-        background-color: #000000;
+        background-color: $color-black; 
         padding: 20px;
         text-align: center;
         border-top: 5px solid $color-yellow;
     }
 
     &__urgency-text {
-        color: #ffffff;
-        font-size: 1.4rem;
+        color: $color-white;
         font-weight: 700;
         margin: 0;
         text-transform: uppercase;
@@ -58,29 +55,29 @@
     }
 
     &__plan-card {
-        background-color: #ffffff;
-        border: 2px solid #e2e8f0;
+        background-color: $color-white;
+        border: 2px solid $color-border-light;
         border-radius: 20px;
         flex: 1 1 300px;
         max-width: 360px;
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        box-shadow: 0 10px 25px rgba($color-true-black, 0.03);
 
-        &--starter .checkout-section__plan-badge { background-color: #111; color: #fff; }
-        &--standard .checkout-section__plan-badge { background-color: #111; color: #fff; }
+        &--starter .checkout-section__plan-badge { background-color: $color-near-black; color: $color-white; }
+        &--standard .checkout-section__plan-badge { background-color: $color-near-black; color: $color-white; }
         
         &--best-seller {
-            border: 3px solid #ff4d4f;
-            background-color: #fffdf2;
+            border: 3px solid $color-red-accent;
+            background-color: $color-yellow-pale-alt;
             transform: scale(1.02);
             position: relative;
             z-index: 2;
 
             .checkout-section__plan-badge {
-                background: linear-gradient(90deg, #ff7a45, $color-yellow);
-                color: #fff;
+                background: linear-gradient(90deg, $color-orange-medium, $color-yellow);
+                color: $color-white;
             }
             @media (max-width: 992px) { transform: none; }
         }
@@ -102,8 +99,8 @@
         flex-grow: 1;
     }
 
-    &__plan-title { font-size: 1.8rem; font-weight: 800; margin: 0; color: #000; }
-    &__plan-duration { font-size: 1rem; color: #666; margin: 5px 0 20px 0; }
+    &__plan-title { font-size: 1.8rem; font-weight: 800; margin: 0; color: $color-true-black; }
+    &__plan-duration { font-size: 1rem; color: $color-gray-secondary; margin: 5px 0 20px 0; }
 
     &__image-wrapper {
         position: relative;
@@ -113,48 +110,48 @@
 
         .tag-bonus-vip {
             position: absolute; bottom: 15px; left: 10px;
-            background: #ff4d4f; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 3px 6px; border-radius: 3px;
+            background: $color-red-accent; color: $color-white; font-size: 0.7rem; font-weight: bold; padding: 3px 6px; border-radius: 3px;
         }
         .tag-bonus-qty {
             position: absolute; bottom: 15px; right: 10px;
-            background: #52c41a; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 3px 6px; border-radius: 3px;
+            background: $color-green-accent; color: $color-white; font-size: 0.7rem; font-weight: bold; padding: 3px 6px; border-radius: 3px;
         }
     }
 
     &__plan-image { max-width: 90%; height: 200px; object-fit: contain; margin-bottom: 15px; }
 
     &__price-box {
-        display: flex; align-items: flex-start; margin: 15px 0; color: #000;
+        display: flex; align-items: flex-start; margin: 15px 0; color: $color-true-black;
         .checkout-section__currency { font-size: 1.8rem; font-weight: 700; margin-top: 5px; }
         .checkout-section__price { font-size: 3.8rem; font-weight: 800; line-height: 1; }
-        .checkout-section__unit { font-size: 1rem; color: #555; align-self: flex-end; margin-left: 3px; margin-bottom: 5px; }
+        .checkout-section__unit { font-size: 1rem; color: $color-gray-medium; align-self: flex-end; margin-left: 3px; margin-bottom: 5px; }
     }
 
     &__features {
         list-style: none; padding: 0 0 0 10px; margin: 0 0 20px 0; width: 100%; display: flex; flex-direction: column; gap: 8px;
         li {
-            display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #333;
-            .check-icon { color: #52c41a; font-weight: 900; }
+            display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: $color-charcoal;
+            .check-icon { color: $color-green-accent; font-weight: 900; }
         }
     }
 
     &__buy-button {
-        width: 100%; background: linear-gradient(180deg, #fff066 0%, $color-yellow 100%);
-        border: 2px solid #eed000; border-radius: 50px; padding: 14px;
-        font-size: 1.3rem; font-weight: 800; color: #002366; text-decoration: none;
+        width: 100%; background: linear-gradient(180deg, $color-yellow-light 0%, $color-yellow 100%);
+        border: 2px solid $color-yellow-border; border-radius: 50px; padding: 14px;
+        font-size: 1.3rem; font-weight: 800; color: $color-blue-dark; text-decoration: none;
         display: flex; justify-content: center; align-items: center; gap: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.06); transition: all 0.2s ease;
+        box-shadow: 0 4px 10px rgba($color-true-black, 0.06); transition: all 0.2s ease;
 
-        .cart-icon { background: #002366; border-radius: 50%; padding: 4px; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; }
-        &:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+        .cart-icon { background: $color-blue-dark; border-radius: 50%; padding: 4px; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; }
+        &:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba($color-true-black, 0.1); }
     }
 
     &__payments { max-width: 80%; margin-top: 15px; height: auto; }
 
     &__total {
-        margin-top: auto; padding-top: 20px; font-size: 1rem; font-weight: 700; color: #444;
-        del { color: #aaa; margin-right: 4px; }
-        span { color: #002366; font-size: 1.2rem; font-weight: 800; }
+        margin-top: auto; padding-top: 20px; font-size: 1rem; font-weight: 700; color: $color-mid-gray;
+        del { color: $color-gray-alt; margin-right: 4px; }
+        span { color: $color-blue-dark; font-size: 1.2rem; font-weight: 800; }
     }
 
     // ==========================================
@@ -168,7 +165,7 @@
     &__reviews-title {
         font-size: 1.3rem;
         font-weight: 700;
-        color: #111;
+        color: $color-near-black;
         margin: 0 0 8px 0;
     }
 
@@ -177,57 +174,52 @@
         margin-bottom: 5px;
         span {
             font-weight: 800;
-            color: #111;
+            color: $color-near-black;
             margin-left: 5px;
         }
     }
 
     &__reviews-count {
         font-size: 0.95rem;
-        color: #666;
+        color: $color-gray-secondary;
         margin: 0;
-        span { font-weight: 700; color: #111; }
+        span { font-weight: 700; color: $color-near-black; }
     }
 
     // ==========================================
     // 4. Selos Horizontais Cinzas
     // ==========================================
     &__trust-badges {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0;
-        border-top: 1px dashed #cbd5e1;
-        border-bottom: 1px dashed #cbd5e1;
-        margin-bottom: 60px;
-        flex-wrap: wrap;
+        @include badge-bar($color-bg-light);
     }
 
     &__badge-item {
+        padding: 30px;
+        border-radius: 20px;
         display: flex;
+        flex-direction: row;
         align-items: center;
-        gap: 12px;
-        flex: 1 1 200px;
-        max-width: 240px;
+        gap: 20px;
+        flex: 1 1 auto;
+        color: $color-true-black;
+        @include card-separator(rgba($color-true-black, 0.2));
 
-        img { width: 32px; height: 32px; opacity: 0.7; }
-        span { font-size: 0.85rem; font-weight: 600; color: #555; line-height: 1.3; }
-
-        @media (max-width: 600px) { justify-content: center; text-align: center; }
+        img { width: 32px; height: 32px; }
+        span { font-size: 0.9rem; font-weight: 600; color: $color-true-black; line-height: 1.3; }
     }
 
     // ==========================================
     // 5. Box da Garantia (Rodapé)
     // ==========================================
     &__guarantee-box {
-        background: linear-gradient(135deg, #4a0e0e 0%, #1a0505 100%); // Vermelho escuro elegante
+        background: linear-gradient(60deg, $color-black 0%, $color-dark-warm 50%, $color-red-deep 100%);
         border-radius: 20px;
         padding: 40px;
+        margin: 60px 0;
         display: flex;
         align-items: center;
         gap: 40px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        box-shadow: 0 15px 35px rgba($color-true-black, 0.15);
 
         @media (max-width: 768px) {
             flex-direction: column;
@@ -238,11 +230,11 @@
 
     &__guarantee-badge {
         flex-shrink: 0;
-        img { width: 160px; height: auto; }
+        img { width: 398px; height: auto; }
     }
 
     &__guarantee-text {
-        color: #ffffff;
+        color: $color-white;
 
         h3 {
             font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; line-height: 1.3;
@@ -251,8 +243,8 @@
         }
 
         p {
-            font-size: 1rem; color: #dddddd; line-height: 1.6; margin: 0 0 25px 0;
-            strong { color: #fff; }
+            font-size: 1rem; color: $color-gray-light-text; line-height: 1.6; margin: 0 0 25px 0;
+            strong { color: $color-white; }
         }
     }
 
@@ -260,12 +252,12 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(180deg, #fff066 0%, $color-yellow 100%);
-        color: #000; border: 1px solid #eed000; border-radius: 50px;
+        background: linear-gradient(180deg, $color-yellow-light 0%, $color-yellow 100%);
+        color: $color-true-black; border: 1px solid $color-yellow-border; border-radius: 50px;
         padding: 15px 40px; font-size: 1.1rem; font-weight: 800; text-decoration: none;
-        box-shadow: 0 4px 15px rgba(255, 230, 0, 0.2); transition: all 0.2s ease;
+        box-shadow: 0 4px 15px rgba($color-yellow-glow, 0.2); transition: all 0.2s ease;
 
-        &:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 230, 0, 0.4); }
+        &:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba($color-yellow-glow, 0.4); }
         @media (max-width: 600px) { width: 100%; }
     }
 }

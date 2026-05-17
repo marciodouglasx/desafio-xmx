@@ -1,0 +1,62 @@
+@use 'variables' as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 70px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &--primary {
+        background-color: $color-yellow;
+        color: $color-true-black;
+        box-shadow: 1px 5px rgba($color-yellow, 0.6);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba($color-yellow, 0.6);
+        }
+    }
+}
+
+.btn-img {
+    display: block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+}
+
+.fire-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-gray-badge;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @media (max-width: 991px) {
+        justify-content: center;
+    }
+}
+
+.fire-badge__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}

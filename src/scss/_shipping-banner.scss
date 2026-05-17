@@ -50,7 +50,7 @@
     &__title {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #000000; // Texto principal em preto
+        color: $color-true-black; // Texto principal em preto
         margin: 0;
         line-height: 1.2;
 
@@ -64,14 +64,14 @@
 
         // Destaques em azul escuro/cinza ardósia ("6 Bottle" e "FREE Shipping")
         &--highlight-blue {
-            color: #4a5568; // Tom de azul acinzentado escuro idêntico à imagem
+            color: $color-blue-gray; // Tom de azul acinzentado escuro idêntico à imagem
         }
     }
 
     &__subtitle {
         font-size: 1rem;
         font-weight: 600;
-        color: #111111;
+        color: $color-near-black;
         margin: 0;
         letter-spacing: -0.2px;
 

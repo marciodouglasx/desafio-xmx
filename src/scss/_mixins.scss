@@ -1,0 +1,43 @@
+@mixin badge-bar($bg-color) {
+    width: 100%;
+    position: relative;
+    background-color: $bg-color;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+@mixin card-separator($color) {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 80%;
+        width: 1px;
+        background-color: $color;
+
+        @media (max-width: 768px) {
+            right: unset;
+            top: unset;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+        }
+    }
+
+    &:last-child::after {
+        display: none;
+    }
+}
