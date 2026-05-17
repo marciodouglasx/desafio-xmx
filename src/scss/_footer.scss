@@ -1,0 +1,93 @@
+@use 'variables' as *;
+
+.main-footer {
+    width: 100%;
+    font-family: sans-serif; // Substitua pela fonte principal do seu projeto
+
+    // Container interno para centralizar os conteúdos de forma consistente
+    &__container {
+        max-width: 1000px; // Um pouco mais enxuto para que o texto longo do disclaimer fique elegante
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    // ==========================================
+    // 1. Barra Amarela (Links)
+    // ==========================================
+    &__nav-bar {
+        background-color: $color-yellow; // Variável da sua cor amarela padrão
+        padding: 15px 0;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap; // Permite quebra de linha organizada em telas mobile
+    }
+
+    &__link {
+        color: #111111; // Links em tom escuro para contraste no fundo amarelo
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 0.8rem;
+        }
+    }
+
+    // ==========================================
+    // 2. Barra Preta (Disclaimer)
+    // ==========================================
+    &__disclaimer-bar {
+        background-color: #111111; // Preto ligeiramente suavizado ou puro #000000
+        padding: 35px 0;
+    }
+
+    &__disclaimer-text {
+        color: #888888; // Tom cinza médio para reduzir o peso visual, conforme a imagem
+        font-size: 0.78rem;
+        line-height: 1.6;
+        margin: 0;
+        text-align: center;
+
+        @media (max-width: 600px) {
+            font-size: 0.72rem;
+            line-height: 1.5;
+            text-align: justify; // Melhora a leitura do bloco grande no mobile
+        }
+    }
+
+    // ==========================================
+    // 3. Barra Branca (Copyright e Endereço)
+    // ==========================================
+    &__copyright-bar {
+        background-color: #ffffff;
+        padding: 25px 0;
+        border-top: 1px solid #eeeeee; // Divisória sutil superior
+    }
+
+    &__copy-text {
+        color: #333333;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+    }
+
+    &__address {
+        color: #666666;
+        font-size: 0.75rem;
+        font-style: normal; // Remove o itálico padrão da tag <address>
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    }
+}

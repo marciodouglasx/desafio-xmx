@@ -1,0 +1,82 @@
+@use 'variables' as *;
+
+.shipping-banner {
+    background-color: $color-yellow; // Usa a sua variável de cor amarela
+    padding: 25px 20px;
+    width: 100%;
+    font-family: sans-serif; // Substitua pela fonte padrão do seu projeto
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        // Responsividade para celulares: quebra em linha e centraliza tudo
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+    }
+
+    // Container do Ícone
+    &__icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0; // Impede o caminhão de esmagar em telas médias
+    }
+
+    &__icon {
+        width: 90px; // Tamanho proporcional ao do layout
+        height: auto;
+
+        @media (max-width: 480px) {
+            width: 75px;
+        }
+    }
+
+    // Bloco de Textos
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &__title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #000000; // Texto principal em preto
+        margin: 0;
+        line-height: 1.2;
+
+        @media (max-width: 992px) {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.3rem;
+        }
+
+        // Destaques em azul escuro/cinza ardósia ("6 Bottle" e "FREE Shipping")
+        &--highlight-blue {
+            color: #4a5568; // Tom de azul acinzentado escuro idêntico à imagem
+        }
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #111111;
+        margin: 0;
+        letter-spacing: -0.2px;
+
+        @media (max-width: 480px) {
+            font-size: 0.9rem;
+        }
+    }
+}

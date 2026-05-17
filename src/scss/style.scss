@@ -1,0 +1,17 @@
+// 1. Configurações Globais (Variáveis, mixins, etc.)
+@use 'variables' as *;
+
+// 2. Estilos Base e Componentes Reutilizáveis
+@use 'base';
+
+// 3. Seções da Página 
+@use 'hero';
+@use 'pricing'; 
+@use 'formula';
+@use 'ingredients';
+@use 'about';
+@use 'testimonials';
+@use 'shipping-banner';
+@use 'checkout';
+@use 'faq';
+@use 'footer';

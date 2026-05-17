@@ -1,0 +1,170 @@
+@use 'variables' as *;
+
+.formula {
+    background-color: #0a0503; // Fundo escuro/quase preto puxado para o tom do fogo
+    color: #ffffff;
+    padding: 80px 20px;
+    overflow: hidden;
+    position: relative;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+
+        // Responsividade para tablets e celulares
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+        }
+    }
+
+    // ==========================================
+    // Lado da Mídia (Imagem do Produto)
+    // ==========================================
+    &__media {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 550px;
+        width: 100%;
+    }
+
+    &__image {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__badge {
+        position: absolute;
+        top: 20%;
+        right: 15%;
+        width: 90px;
+        height: auto;
+        animation: pulse 3s infinite ease-in-out; // Efeito sutil de pulsação no selo dourado
+
+        @media (max-width: 480px) {
+            width: 70px;
+            right: 10%;
+        }
+    }
+
+    // ==========================================
+    // Lado do Conteúdo (Textos)
+    // ==========================================
+    &__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (max-width: 768px) {
+            align-items: center;
+        }
+    }
+
+    &__offer-tag {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #9c9c9c; // Cinza claro
+        margin-bottom: 20px;
+        text-transform: uppercase;
+
+    }
+
+    &__offer-icon {
+        width: 14px;
+        height: auto;
+    }
+
+    &__title {
+        font-size: 2.8rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 25px;
+        letter-spacing: -0.5px;
+
+        @media (max-width: 992px) {
+            font-size: 2.2rem;
+        }
+
+        &--highlight {
+            color: #ff6633; // Laranja do fogo/High Performance
+            background: linear-gradient(90deg, #ff8c42, #ff4b2b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &__description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #b3b3b3; // Texto cinza para dar uma leitura confortável no escuro
+        margin-bottom: 35px;
+        max-width: 500px;
+
+        p {
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // ==========================================
+    // Botão de Ação (ORDER NOW)
+    // ==========================================
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: linear-gradient(180deg, #fff066 0%, $color-yellow 100%);
+        color: #000000;
+        border: 1px solid #eed000;
+        border-radius: 50px;
+        padding: 16px 45px;
+        font-size: 1.3rem;
+        font-weight: 800;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: 0 4px 20px rgba(255, 230, 0, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 230, 0, 0.4);
+        }
+
+        @media (max-width: 480px) {
+            width: 100%;
+            padding: 16px 20px;
+        }
+    }
+
+    &__button-icon {
+        width: 20px;
+        height: auto;
+    }
+}
+
+// Animação simples para o selo dourado
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

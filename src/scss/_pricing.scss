@@ -1,0 +1,324 @@
+@use 'variables' as *;
+
+.pricing {
+
+    &__card-top-bar {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background-color: $color-yellow;
+    }
+
+    &__card-item {
+        padding: 30px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        flex: 1 1 auto;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 80%;
+            width: 1px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+    }
+
+    // ==========================================
+    // NOVO ESTILO: Container Principal e Header
+    // ==========================================
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px;
+        text-align: center;
+        font-family: sans-serif; // Substitua pela fonte do seu projeto
+    }
+
+    &__header {
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #000;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+
+        span {
+            color: $color-yellow;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    // ==========================================
+    // Grid de Cards
+    // ==========================================
+    &__grid {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch; // Faz todos os cards terem a mesma altura
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    // ==========================================
+    // Estrutura Base do Card de Planos
+    // ==========================================
+    &__plan-card {
+        background-color: #fff;
+        border: 2px solid #b3d7ff; // Borda azul clara padrão do container externo da imagem
+        border-radius: 15px;
+        flex: 1 1 320px;
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+        // Estilos específicos usando modificadores BEM
+        &--starter {
+            .pricing__plan-badge-top {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+
+        &--best-seller {
+            background-color: #fffbe6; // Fundo amarelado suave
+            border: 3px solid #ff4d4f; // Borda vermelha do Best Seller
+            transform: scale(1.02); // Leve destaque no tamanho
+            position: relative;
+            z-index: 2;
+
+            .pricing__plan-badge-top {
+                background: linear-gradient(90deg, #ff7a45, $color-yellow);
+                color: #fff;
+            }
+        }
+
+        &--standard {
+            .pricing__plan-badge-top {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+    }
+
+    &__plan-badge-top {
+        padding: 10px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    &__plan-content {
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    &__plan-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #000;
+        margin: 0;
+    }
+
+    &__plan-duration {
+        font-size: 1.1rem;
+        color: #666;
+        margin-top: 5px;
+        margin-bottom: 25px;
+    }
+
+    // Container de Imagem para controlar os selos absolutos
+    &__image-wrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__plan-image {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+
+    // Selos/Tags de Bônus nas Imagens
+    &__bonus-tag-vip {
+        position: absolute;
+        bottom: 25px;
+        left: 15px;
+        background-color: #ff4d4f;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    &__bonus-tag-qty {
+        position: absolute;
+        bottom: 25px;
+        right: 15px;
+        background-color: #52c41a;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    // Seção de Preço (/bottle)
+    &__plan-price-box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 20px 0;
+        color: #000;
+    }
+
+    &__currency {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 5px;
+    }
+
+    &__price {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    &__unit {
+        font-size: 1.1rem;
+        color: #555;
+        align-self: flex-end;
+        margin-left: 5px;
+        margin-bottom: 8px;
+    }
+
+    // Lista de Benefícios
+    &__features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 25px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        padding-left: 20px; // Alinha um pouco mais ao centro
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #222;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    // Botão de Compra Amarelo
+    &__button {
+        width: 100%;
+        background: linear-gradient(180deg, #fff066 0%, $color-yellow 100%);
+        border: 2px solid #eed000;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #002366; // Azul escuro do texto do botão original
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        img {
+            width: 40px;
+            height: 40px;
+            background-color: #002366; // Círculo escuro em volta do carrinho
+            padding: 5px;
+            border-radius: 50px;
+            color: #fff;
+            // filter: invert(1); // Faz o ícone do carrinho ficar branco interno
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    // Selos de Bandeiras de Cartão abaixo do botão
+    &__payment-methods {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            max-width: 85%;
+            height: auto;
+        }
+    }
+
+    // Texto de Preço Total do Rodapé do Card
+    &__total-price {
+        margin-top: auto; // Garante que fique sempre colado no rodapé do card
+        padding-top: 20px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #444;
+
+        del {
+            color: #999;
+            margin-right: 5px;
+        }
+
+        span {
+            color: #002366; // Cor do preço final em destaque
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+    }
+}
