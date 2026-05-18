@@ -1,14 +1,14 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 .formula {
-    background-color: $color-dark-bg;
+    background-color: $color-black;
     color: $color-white;
     overflow: hidden;
     position: relative;
 
     &__container {
-        max-width: 1200px;
-        margin: 0 auto;
+        @include container-base();
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -25,9 +25,6 @@
         }
     }
 
-    // ==========================================
-    // Lado da Mídia (Imagem do Produto)
-    // ==========================================
     &__media {
         position: absolute;
         left: 0;
@@ -62,11 +59,11 @@
 
     &__badge {
         position: absolute;
-        top: 25%;
-        right: 30%;
+        top: 26%;
+        right: 33%;
         width: auto;
         height: 131px;
-        animation: pulse 3s infinite ease-in-out; // Efeito sutil de pulsação no selo dourado
+        animation: pulse 3s infinite ease-in-out; 
 
         @media (max-width: 480px) {
             width: 70px;
@@ -74,9 +71,6 @@
         }
     }
 
-    // ==========================================
-    // Lado do Conteúdo (Textos)
-    // ==========================================
     &__content {
         flex: 1;
         display: flex;
@@ -88,30 +82,15 @@
         }
     }
 
-    &__offer-tag {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: $color-gray-soft; // Cinza claro
-        margin-bottom: 20px;
-        text-transform: uppercase;
-
-    }
-
-    &__offer-icon {
-        width: 14px;
-        height: auto;
-    }
-
     &__title {
-        font-size: 2.8rem;
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 25px;
-        letter-spacing: -0.5px;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 36px;
+        line-height: 48px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+
+        margin-bottom: 16px;
 
         @media (max-width: 992px) {
             font-size: 2.2rem;
@@ -127,56 +106,24 @@
     }
 
     &__description {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: $color-gray-text; // Texto cinza para dar uma leitura confortável no escuro
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        color: rgba($color-white, 0.8); 
         margin-bottom: 35px;
         max-width: 500px;
 
         p {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
 
             &:last-child {
                 margin-bottom: 0;
             }
         }
     }
-
-    // ==========================================
-    // Botão de Ação (ORDER NOW)
-    // ==========================================
-    &__button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        background: linear-gradient(180deg, $color-yellow-light 0%, $color-yellow 100%);
-        color: $color-true-black;
-        border: 1px solid $color-yellow-border;
-        border-radius: 50px;
-        padding: 16px 45px;
-        font-size: 1.3rem;
-        font-weight: 800;
-        text-decoration: none;
-        text-transform: uppercase;
-        box-shadow: 0 4px 20px rgba($color-yellow-glow, 0.2);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba($color-yellow-glow, 0.4);
-        }
-
-        @media (max-width: 480px) {
-            width: 100%;
-            padding: 16px 20px;
-        }
-    }
-
-    &__button-icon {
-        width: 20px;
-        height: auto;
-    }
+  
 }
 
 // Animação simples para o selo dourado

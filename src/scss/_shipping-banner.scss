@@ -1,21 +1,19 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 .shipping-banner {
-    background-color: $color-yellow; // Usa a sua variável de cor amarela
+    background-color: $color-yellow;
     padding: 25px 20px;
     width: 100%;
-    font-family: sans-serif; // Substitua pela fonte padrão do seu projeto
 
     &__container {
-        max-width: 1200px;
-        margin: 0 auto;
+        @include container-base();
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 48px;
 
-        // Responsividade para celulares: quebra em linha e centraliza tudo
         @media (max-width: 768px) {
             flex-direction: column;
             text-align: center;
@@ -23,24 +21,21 @@
         }
     }
 
-    // Container do Ícone
     &__icon-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-shrink: 0; // Impede o caminhão de esmagar em telas médias
+        flex-shrink: 0; 
     }
 
     &__icon {
-        width: 90px; // Tamanho proporcional ao do layout
+        width: 212px; 
         height: auto;
-
         @media (max-width: 480px) {
             width: 75px;
         }
     }
 
-    // Bloco de Textos
     &__content {
         display: flex;
         flex-direction: column;
@@ -48,9 +43,14 @@
     }
 
     &__title {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: $color-true-black; // Texto principal em preto
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 54px;
+        letter-spacing: 0%;
+        text-align: center;
+
+        color: $color-black; 
         margin: 0;
         line-height: 1.2;
 
@@ -62,18 +62,20 @@
             font-size: 1.3rem;
         }
 
-        // Destaques em azul escuro/cinza ardósia ("6 Bottle" e "FREE Shipping")
         &--highlight-blue {
-            color: $color-blue-gray; // Tom de azul acinzentado escuro idêntico à imagem
+            color: $color-gray-medium;
         }
     }
 
     &__subtitle {
-        font-size: 1rem;
-        font-weight: 600;
-        color: $color-near-black;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: 0%;
+
+        color: $color-black;
         margin: 0;
-        letter-spacing: -0.2px;
 
         @media (max-width: 480px) {
             font-size: 0.9rem;

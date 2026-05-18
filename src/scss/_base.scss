@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+
 @import url('https://googleapis.com');
 
 * {
@@ -8,4 +10,9 @@
 
 body {
   font-family: 'Inter', sans-serif;
+}
+
+.container {
+    @include container-base();
+    padding: 0 20px;
 }

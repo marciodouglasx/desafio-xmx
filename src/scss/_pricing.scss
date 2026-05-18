@@ -8,25 +8,26 @@
     }
 
     &__card-item {
-        padding: 30px;
+        padding-block: 30px;
         border-radius: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 20px;
+        gap: 16px;
         flex: 1 1 auto;
-        @include card-separator(rgba($color-true-black, 0.2));
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: 0%;
+
+        @include card-separator(rgba($color-black, 0.2));
     }
 
-    // ==========================================
-    // NOVO ESTILO: Container Principal e Header
-    // ==========================================
     &__container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 60px 20px;
+        @include container-base();
+        padding: 80px 20px;
         text-align: center;
-        font-family: sans-serif; // Substitua pela fonte do seu projeto
     }
 
     &__header {
@@ -34,38 +35,41 @@
     }
 
     &__title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: $color-true-black;
-        margin-bottom: 10px;
-        text-transform: uppercase;
+        font-size: 40px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        line-height: 56px;
+        color: $color-black;
+        margin-bottom: 8px;
 
         span {
-            color: $color-yellow;
+            background: linear-gradient(to right, $color-orange-medium, $color-orange-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent; 
         }
     }
 
     &__subtitle {
-        font-size: 1.1rem;
+        font-weight: 400;
+        font-size: 20px;
+        padding-bottom: 20px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
         color: $color-gray-medium;
     }
 
-    // ==========================================
-    // Grid de Cards
-    // ==========================================
     &__grid {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: stretch; // Faz todos os cards terem a mesma altura
+        align-items: stretch;
         gap: 20px;
         flex-wrap: wrap;
         margin-top: 30px;
     }
 
-    // ==========================================
-    // Estrutura Base do Card de Planos
-    // ==========================================
     &__plan-card {
         background-color: $color-white;
         border: 2px solid $color-blue-light-border;
@@ -75,19 +79,18 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        box-shadow: 0 4px 15px rgba($color-true-black, 0.05);
+        box-shadow: 0 4px 15px rgba($color-black, 0.05);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         cursor: pointer;
 
         &:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba($color-true-black, 0.12);
+            box-shadow: 0 12px 30px rgba($color-black, 0.12);
         }
 
-        // Estilos específicos usando modificadores BEM
         &--starter {
             .pricing__plan-badge-top {
-                background-color: $color-true-black;
+                background-color: $color-black;
                 color: $color-white;
             }
         }
@@ -95,7 +98,6 @@
         &--best-seller {
             background-color: $color-yellow-pale;
             border: 3px solid $color-red-accent;
-            transform: scale(1.02);
             transform-origin: bottom center;
             position: relative;
             z-index: 2;
@@ -105,54 +107,87 @@
             }
 
             .pricing__plan-badge-top {
-                background: linear-gradient(90deg, $color-orange-medium, $color-yellow);
+                padding: 10.5px;
+                background: linear-gradient(90deg, $color-orange-medium, $color-orange-gold);
                 color: $color-white;
+            }
+
+            .pricing__image-wrapper {
+                margin-top: 20px;
+                height: 240px;
+            }
+
+            .pricing__plan-image {
+                max-width: unset;
+                height: 100%;
+                width: auto;
             }
         }
 
         &--standard {
             .pricing__plan-badge-top {
-                background-color: $color-true-black;
+                background-color: $color-black;
                 color: $color-white;
             }
         }
     }
 
     &__plan-badge-top {
-        padding: 10px;
-        font-weight: bold;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        padding: 8px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
     }
 
     &__plan-content {
-        padding: 30px 20px;
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__plan-top {
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex-grow: 1;
+    }
 
-        .btn-img {
-            margin-top: auto;
-        }
+    &__plan-middle {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__plan-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
     &__plan-title {
-        font-size: 2rem;
-        font-weight: 800;
-        color: $color-true-black;
-        margin: 0;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 36px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+
     }
 
     &__plan-duration {
-        font-size: 1.1rem;
-        color: $color-gray-secondary;
-        margin-top: 5px;
-        margin-bottom: 25px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: $color-gray-medium;
     }
 
-    // Container de Imagem para controlar os selos absolutos
     &__image-wrapper {
         position: relative;
         width: 100%;
@@ -165,41 +200,14 @@
         max-width: 100%;
         height: auto;
         object-fit: contain;
-        margin-bottom: 20px;
     }
 
-    // Selos/Tags de Bônus nas Imagens
-    &__bonus-tag-vip {
-        position: absolute;
-        bottom: 25px;
-        left: 15px;
-        background-color: $color-red-accent;
-        color: $color-white;
-        font-size: 0.75rem;
-        font-weight: bold;
-        padding: 4px 8px;
-        border-radius: 4px;
-    }
-
-    &__bonus-tag-qty {
-        position: absolute;
-        bottom: 25px;
-        right: 15px;
-        background-color: $color-green-accent;
-        color: $color-white;
-        font-size: 0.75rem;
-        font-weight: bold;
-        padding: 4px 8px;
-        border-radius: 4px;
-    }
-
-    // Seção de Preço (/bottle)
     &__plan-price-box {
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        margin: 20px 0;
-        color: $color-true-black;
+        margin: 12px 0;
+        color: $color-black;
     }
 
     &__currency {
@@ -209,24 +217,31 @@
     }
 
     &__price {
-        font-size: 4rem;
-        font-weight: 800;
-        line-height: 1;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
     }
 
     &__unit {
-        font-size: 1.1rem;
         color: $color-gray-medium;
         align-self: flex-end;
         margin-left: 5px;
         margin-bottom: 8px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+
     }
 
-    // Lista de Benefícios
     &__features-list {
         list-style: none;
         padding: 0;
-        margin: 0 0 25px 0;
+        margin-bottom: 16px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -238,9 +253,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.9rem;
             font-weight: 700;
-            color: $color-dark-gray;
+            color: $color-gray-medium;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: center;
+
 
             img {
                 width: 16px;

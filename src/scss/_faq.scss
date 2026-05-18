@@ -1,40 +1,44 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 .faq-section {
-    background-color: $color-dark; // Fundo cinza escuro/antracite conforme a imagem
+    background-color: $color-dark; 
     padding: 80px 20px;
-    font-family: sans-serif;
 
     &__container {
-        max-width: 900px; // Um pouco mais estreito para melhor leitura das perguntas
-        margin: 0 auto;
+        @include container-base(900px);
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    // ==========================================
-    // Cabeçalho
-    // ==========================================
     &__header {
         text-align: center;
         margin-bottom: 40px;
     }
 
     &__subtitle {
-        color: $color-yellow; // Usa sua variável amarela para o texto "FAQ"
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 2px;
+        color: $color-yellow; 
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+
         text-transform: uppercase;
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     &__title {
         color: $color-white;
-        font-size: 2.3rem;
-        font-weight: 800;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 56px;
+        letter-spacing: 0%;
+        text-align: center;
+
         margin: 0;
 
         @media (max-width: 600px) {
@@ -42,9 +46,6 @@
         }
     }
 
-    // ==========================================
-    // Accordion / Itens do FAQ
-    // ==========================================
     &__accordion {
         width: 100%;
         display: flex;
@@ -58,7 +59,7 @@
         border-radius: 8px;
         overflow: hidden;
         width: 100%;
-        box-shadow: 0 4px 15px rgba($color-true-black, 0.2);
+        box-shadow: 0 4px 15px rgba($color-black, 0.2);
         transition: all 0.3s ease;
 
         // Remove a setinha padrão do HTML nos navegadores baseados em Chromium e Firefox
@@ -75,9 +76,14 @@
 
     &__question {
         padding: 20px 25px;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: $color-near-black;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+
+        color: $color-black;
         cursor: pointer;
         display: flex;
         justify-content: space-between;
@@ -90,12 +96,11 @@
         }
     }
 
-    // Seta customizada feita puramente em CSS
     &__icon {
         width: 12px;
         height: 12px;
-        border-right: 3px solid $color-near-black;
-        border-bottom: 3px solid $color-near-black;
+        border-right: 3px solid $color-black;
+        border-bottom: 3px solid $color-black;
         transform: rotate(45deg); // Seta para baixo padrão
         transition: transform 0.2s ease;
         margin-left: 15px;
@@ -119,46 +124,13 @@
         }
     }
 
-    // ==========================================
-    // Botão de Ação (ORDER NOW)
-    // ==========================================
     &__actions {
-        margin-bottom: 60px;
+        margin-bottom: 35px;
         width: 100%;
         display: flex;
         justify-content: center;
     }
 
-    &__button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(180deg, $color-yellow-light 0%, $color-yellow 100%);
-        color: $color-true-black;
-        border: 1px solid $color-yellow-border;
-        border-radius: 50px;
-        padding: 16px 60px;
-        font-size: 1.3rem;
-        font-weight: 800;
-        text-decoration: none;
-        text-transform: uppercase;
-        box-shadow: 0 4px 20px rgba($color-yellow-glow, 0.2);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba($color-yellow-glow, 0.4);
-        }
-
-        @media (max-width: 480px) {
-            width: 100%;
-            padding: 16px 20px;
-        }
-    }
-
-    // ==========================================
-    // Rótulo / Supplement Facts
-    // ==========================================
     &__facts-wrapper {
         width: 100%;
         max-width: 1200px;

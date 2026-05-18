@@ -1,13 +1,41 @@
 @use 'variables' as *;
 
 $bg-image-path: '../assets/images/man.png';
-$overlay-color-dark: rgba($color-dark-bg, 0.72); 
+$overlay-color-dark: rgba($color-black, 0.72); 
 
 .hero {
     background-color: $color-black;
     position: relative;
     display: flex;
     flex-direction: column;
+
+    &__title {
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 40px;
+        line-height: 56px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        margin-bottom: 4px;
+
+    }
+
+    &__description{
+        color: rgba($color-white, 0.8);
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        padding-block: 12px;
+    }
+
+    &__description strong {
+        font-weight: 600;
+        color: $color-white;
+        font-style: semi-bold;
+    }
 
     &::before {
         content: '';
@@ -102,9 +130,9 @@ $overlay-color-dark: rgba($color-dark-bg, 0.72);
             background:
             linear-gradient(
                 100deg,
-                rgba($color-black, 0.9)      10%,
-                rgba($color-red-dark, 0.30)  50%,
-                rgba($color-red-intense, 0.65) 100%
+                rgba($color-black, 0.95)     10%,
+                rgba($color-red-dark, 0.55)  50%,
+                rgba($color-red-intense, 0.80) 100%
             );
         }
 
@@ -124,16 +152,11 @@ $overlay-color-dark: rgba($color-dark-bg, 0.72);
         }
     }
 
-    
-    &__leaf-blur {
-        height: 117px;
-        filter: blur(2px);
-    }
-
     &__features{ 
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
         list-style: none;
+        padding-bottom: 28px;
         @media (max-width: 768px) {
             grid-template-columns: 1fr; 
         }
@@ -142,10 +165,13 @@ $overlay-color-dark: rgba($color-dark-bg, 0.72);
 
     &__feature-item {
         font-size: 18px;
-        padding-block: 10px;
+        line-height: 100%;
+        font-weight: 500;
+        font-style: Medium;
+        padding-block: 12px;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 8px;
     }
 
     &__title--highlight-orange {
@@ -159,7 +185,7 @@ $overlay-color-dark: rgba($color-dark-bg, 0.72);
     &__product-group {
         position: relative;
         width: 100%;
-        max-width: 400px;
+        max-width: 570px;
         left: 0%;
 
         @media (min-width: 992px) {
@@ -168,8 +194,7 @@ $overlay-color-dark: rgba($color-dark-bg, 0.72);
             bottom: unset;
             left: unset;
             transform: none;
-            width: 400px;
-            max-width: 400px;
+            width: 570px;
             z-index: 3;
         }
     }
@@ -182,9 +207,6 @@ $overlay-color-dark: rgba($color-dark-bg, 0.72);
         height: 55%;
         z-index: 3;   
         pointer-events: none;
-        @media (max-width: 768px) {
-            width: 85%;
-        }
     }
 
     &__product {
