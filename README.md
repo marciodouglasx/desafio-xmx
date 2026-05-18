@@ -97,3 +97,11 @@ Breakpoints utilizados:
 |---|---|
 | `max-width: 991px` | Tablets |
 | `max-width: 768px` | Mobile |
+
+Vídeo do desafio 
+
+
+https://github.com/user-attachments/assets/cbe873a5-fc8b-4775-9ea6-0dc5cd1ec644
+
+
+
