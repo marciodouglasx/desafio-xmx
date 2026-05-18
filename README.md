@@ -98,6 +98,9 @@ Breakpoints utilizados:
 | `max-width: 991px` | Tablets |
 | `max-width: 768px` | Mobile |
 
+Link do github pages:  
+https://marciodouglasx.github.io/desafio-xmx/
+
 Vídeo do desafio 
 
 
